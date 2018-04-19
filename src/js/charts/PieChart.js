@@ -120,14 +120,12 @@ export default class PieChart extends BaseChart {
 			const endAngle = curAngle = curAngle + diffAngle;
 			const startPosition = PieChart.getPositionByAngle(startAngle,radius);
 			const endPosition = PieChart.getPositionByAngle(endAngle,radius);
-			console.log(startPosition, endPosition, this.clockWise, largeArc);
 			let curPath;
 			if(this.slice_totals.length < 2){
 				curPath = this.makeSimpleDonut();
 			}else{
 				curPath = this.makeArcPathStr(startPosition, endPosition, largeArc);
 			}
-			console.log(curPath);
 			let slice = makePath(curPath, 'pie-path', 'none', this.colors[i]);
 			slice.style.transition = 'transform .3s;';
 			this.draw_area.appendChild(slice);
